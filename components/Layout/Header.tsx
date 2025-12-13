@@ -15,7 +15,7 @@ export default function Header() {
         setMounted(true);
 
         // Check MIDI support
-        if (typeof navigator !== 'undefined' && navigator.requestMIDIAccess) {
+        if (typeof navigator !== 'undefined' && typeof navigator.requestMIDIAccess === 'function') {
             setMidiStatus({ hasAccess: true, error: null });
         } else {
             setMidiStatus({
@@ -27,7 +27,7 @@ export default function Header() {
 
     const handleMIDIConnect = async () => {
         try {
-            if (typeof navigator !== 'undefined' && navigator.requestMIDIAccess) {
+            if (typeof navigator !== 'undefined' && typeof navigator.requestMIDIAccess === 'function') {
                 await navigator.requestMIDIAccess();
                 setMidiStatus({ hasAccess: true, error: null });
             }
@@ -63,6 +63,9 @@ export default function Header() {
                             </Link>
                             <Link href="/rhythm" className="px-3 py-2 text-amber-600 bg-amber-50 hover:bg-amber-100 rounded-md font-medium">
                                 🥁 Rhythm Mode
+                            </Link>
+                            <Link href="/melodic-solfege" className="px-3 py-2 text-amber-600 hover:bg-amber-50 rounded-md font-medium">
+                                🎵 Melodic Solfege
                             </Link>
                         </nav>
                     </div>
