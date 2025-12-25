@@ -57,8 +57,8 @@ export default function ScrollingStaff({
             const displayNotes = notes.slice(0, 20);
 
             // Use dynamic width based on note count, but cap it or scale it
-            const noteSpacing = 120;
-            const contentWidth = Math.max(800, displayNotes.length * noteSpacing + 100);
+            const noteSpacing = 80;
+            const contentWidth = Math.max(600, displayNotes.length * noteSpacing + 100);
             const height = 250;
             renderer.resize(contentWidth, height);
 
@@ -186,3 +186,4 @@ export default function ScrollingStaff({
         </div>
     );
 }
+
